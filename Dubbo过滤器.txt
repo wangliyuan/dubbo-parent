@@ -1,0 +1,25 @@
+1.过滤器作用列表：
+AccessLogFilter(provider):打印每一次请求的访问日志。如果需要访问的日志只出现在指定的appender中，则可以在log的配置
+文件中配置additivity.
+ActiveLimitFilter(consumer):用于限制消费者端对服务端的最大并行调用数
+ExecuteLimitFilter(provider):同上，用于限制服务端的最大并行调用数
+ClassLoaderFilter(provider):用于切换不同线程的类加载器，服务调用完成后会还原回去。
+CompatibleFilter(-):用于使返回值与调用程序的对象版本兼容，默认不启用。如果启用，则会把JSON或fastjson类型的返回值
+转换成Map类型；如果返回类型和本地接口中定义的不同，则会做POJO的转换。
+ConsumerContextFilter(consumer):为消费者把一些上下文信息设置到当前线程的RpcContext对象中，包括invocation,
+localhost,remote host等。
+ContextFilter(provider):同上，但是为服务提供者服务
+DeprecatedFilter(consumer):如果调用的方法被标记为已弃用，那么DeprecatedFilter将记录一个错误消息
+EchoFilter(provider):用于回声测试
+ExceptionFilter(provider):用于统一的异常处理，防止出现序列化失败
+GenericFilter(provider):用于服务提供者端，实现泛化调用，实现序列化的检查和处理
+GenericImplFilter(consumer):同上，但用于消费者端。
+TimeoutFilter(provider):如果某些服务调用超时，则自动记录告警日志
+TokenFilter(provider):服务提供者下发令牌给消费者，通常用于防止消费者绕过注册中心直接调用服务提供者。
+TpsLimitFilter(provider):用于服务端的限流，注意与ExecuteLimitFilter的区分
+FutureFilter(consumer):在发起invoke或得到返回值，出现异常的时候触发回调事件
+TraceFilter(provider):Trace指令的使用
+MonitorFilter(+):监控并统计所有的接口的调用情况，如成功，失败，耗时。后续DubboMonitor会定时把该过滤器收集的数据
+发送到Dubbo-Monitor服务上。
+
+
