@@ -46,6 +46,7 @@ import java.util.Map;
 import static com.alibaba.dubbo.config.spring.util.BeanFactoryUtils.addApplicationListener;
 
 /**
+ * test
  * ServiceFactoryBean
  * InitializingBean: 初始化bean完毕后会调用afterPropertiesSet方法
  * DisposableBean:销毁bean的时候回调用destroy方法
